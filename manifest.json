@@ -1,0 +1,22 @@
+{
+  "name": "Cargos IASD Iguaíba 2026",
+  "short_name": "Cargos 2026",
+  "description": "Cargos e nomeações da Igreja Adventista do Sétimo Dia – Iguaíba – 2026",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
