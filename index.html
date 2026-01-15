@@ -16,12 +16,12 @@
 :root{
   --bg1:#c7ddff;
   --bg2:#e4efff;
-  --card:#eef4ff;
+  --card:#eaf2ff;
   --border:#b6ccf5;
-  --primary:#1e3a8a;
+  --primary:#1e40af;
   --text:#0f172a;
   --muted:#475569;
-  --highlight:#15803d;
+  --highlight:#2563eb;
 }
 
 *{ box-sizing:border-box; }
@@ -35,22 +35,22 @@ body{
 
 /* ===== TOPO ===== */
 header{
-  padding:20px 16px 18px;
+  padding:26px 16px 18px;
   text-align:center;
 }
 
 .logo-box{
   display:flex;
   justify-content:center;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .logo-box img{
-  width:160px;
-  padding:6px;
-  border-radius:14px;
-  background:#f8fbff;
-  box-shadow:0 4px 14px rgba(30,58,138,.22);
+  width:190px;
+  padding:0;
+  background:none;
+  border-radius:0;
+  box-shadow:none;
 }
 
 header h1{
@@ -92,7 +92,7 @@ header p{
   border-radius:20px;
   padding:16px;
   margin-bottom:16px;
-  box-shadow:0 6px 16px rgba(30,58,138,.18);
+  box-shadow:0 6px 16px rgba(30,64,175,.18);
 }
 
 .cargo{
@@ -163,49 +163,21 @@ footer{
 </footer>
 
 <script>
-/* ===== FUNÇÃO PARA IGNORAR ACENTOS NA BUSCA ===== */
-function normalizeText(text){
+// ===== FUNÇÃO PARA REMOVER ACENTOS (APENAS PARA BUSCA) =====
+function normalize(text){
   return text
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g,"");
 }
 
-/* ===== DADOS ===== */
 let data = [
-{ cargo:"Ação Solidária Adventista", pessoas:[{nome:"Josiane Gomes",funcao:"Diretora"},{nome:"Inácia Costa",funcao:"Associada"}]},
-{ cargo:"Ancião Administrativo", pessoas:[{nome:"José Ribamar Junior"}]},
-{ cargo:"Ancionato", pessoas:[{nome:"Fernando Silva"},{nome:"Iago Ricardo"},{nome:"Jailson Ribeiro"},{nome:"José Ribamar Junior"}]},
-{ cargo:"Círculo de Oração", pessoas:[{nome:"Benerides Selares",funcao:"Diretora"}]},
-{ cargo:"Comunicação", pessoas:[{nome:"Ellayne Crystine",funcao:"Diretora"},{nome:"Eliedson Raposo",funcao:"Associado"}]},
-{ cargo:"Coordenador de Interessados", pessoas:[{nome:"Viviane Gomes",funcao:"Diretora"},{nome:"Flavia Cristina",funcao:"Associada"}]},
-{ cargo:"Diaconisa Chefe", pessoas:[{nome:"Sirle Sá"}]},
-{ cargo:"Diaconisas", pessoas:[{nome:"Gilvana Conceição"},{nome:"Hildene Frazão"},{nome:"Inácia Costa"},{nome:"Jacilene Selares"},{nome:"Marlete Sousa"},{nome:"Merineide de Sousa"}]},
-{ cargo:"Diácono Chefe", pessoas:[{nome:"Amarildo Silva"}]},
-{ cargo:"Diáconos", pessoas:[{nome:"Alcionor Frazão"},{nome:"Fernando Silva"},{nome:"Aldonio Vieira"},{nome:"Hermes Junior"},{nome:"Iago Ricardo"},{nome:"Igor Rodrigo"},{nome:"Jardson Frazão"},{nome:"Jonathan Pereira"},{nome:"Jonns William"},{nome:"Joseph Santos"},{nome:"Leandro Silva"}]},
-{ cargo:"Escola Sabatina", pessoas:[{nome:"Jacilene Selares",funcao:"Diretora"},{nome:"Ana Beatriz",funcao:"Associada"}]},
-{ cargo:"Evangelismo", pessoas:[{nome:"Benerides Selares",funcao:"Diretora"}]},
-{ cargo:"Liberdade Religiosa", pessoas:[{nome:"Iago Ricardo",funcao:"Diretor"}]},
-{ cargo:"Ministério da Criança", pessoas:[{nome:"Ana Karla",funcao:"Diretora"},{nome:"Ana Sara",funcao:"Associada"}]},
-{ cargo:"Ministério da Família", pessoas:[{nome:"Jailson Ribeiro",funcao:"Diretor"},{nome:"Polyana Pereira",funcao:"Diretora"}]},
-{ cargo:"Ministério da Mulher", pessoas:[{nome:"Joelma Sá",funcao:"Diretora"},{nome:"Sirle Sá",funcao:"Associada"}]},
-{ cargo:"Ministério das Possibilidades", pessoas:[{nome:"Jadia Thais",funcao:"Diretora"}]},
-{ cargo:"Ministério do Adolescente", pessoas:[{nome:"Andreyna Nunes",funcao:"Diretora"},{nome:"Ana Clara",funcao:"Associada"},{nome:"Leandro Silva",funcao:"Associado"}]},
-{ cargo:"Ministério dos Aventureiros", pessoas:[{nome:"Ana Clara",funcao:"Diretora"},{nome:"Joellyny Marcelly",funcao:"Associada"},{nome:"Leandro Silva",funcao:"Associado"}]},
-{ cargo:"Ministério dos Desbravadores", pessoas:[{nome:"Ana Beatriz",funcao:"Diretora"},{nome:"Evilla Wanessa",funcao:"Associada"},{nome:"Glauber Ruan",funcao:"Associado"}]},
-{ cargo:"Ministério dos Homens", pessoas:[{nome:"Iago Ricardo",funcao:"Diretor"}]},
-{ cargo:"Ministério Jovem", pessoas:[{nome:"Igor Rodrigo",funcao:"Diretor"},{nome:"Joellyny Marcelly",funcao:"Associada"}]},
-{ cargo:"Ministério Pessoal", pessoas:[{nome:"Fernando Silva",funcao:"Diretor"},{nome:"Joelma Sá",funcao:"Associada"}]},
-{ cargo:"Mordomia Cristã", pessoas:[{nome:"José Nunes",funcao:"Diretor"},{nome:"Jonns William",funcao:"Associado"}]},
-{ cargo:"Música", pessoas:[{nome:"Yan Cristhian",funcao:"Diretor"},{nome:"Ana Sara",funcao:"Equipe"},{nome:"Jadia Thais",funcao:"Equipe"},{nome:"Ana Vitória",funcao:"Equipe"}]},
-{ cargo:"Patrimônio", pessoas:[{nome:"Elias Lima",funcao:"Diretor"}]},
-{ cargo:"Pequenos Grupos", pessoas:[{nome:"José Ribamar Junior",funcao:"Diretor"},{nome:"Jailson Ribeiro",funcao:"Associado"}]},
-{ cargo:"Publicações", pessoas:[{nome:"Jonathan Pereira",funcao:"Diretor"}]},
-{ cargo:"Recepção", pessoas:[{nome:"Merindalva de Sousa",funcao:"Diretora"},{nome:"Camila Santos",funcao:"Associada"}]},
-{ cargo:"Saúde", pessoas:[{nome:"Ana Ricarda",funcao:"Diretora"},{nome:"Andreyna Nunes",funcao:"Associada"}]},
-{ cargo:"Secretaria", pessoas:[{nome:"Joseph Santos",funcao:"Diretor"}]},
-{ cargo:"Sonoplastia", pessoas:[{nome:"Jonns William",funcao:"Diretor"},{nome:"Ericles Felipe",funcao:"Equipe"},{nome:"Eliedson Raposo",funcao:"Equipe"},{nome:"Joseph Santos",funcao:"Equipe"},{nome:"Yan Cristhian",funcao:"Equipe"}]},
-{ cargo:"Tesouraria", pessoas:[{nome:"Jonathan Pereira",funcao:"Diretor"},{nome:"Yan Cristhian",funcao:"Associado"}]}
+  { cargo:"Ação Solidária Adventista", pessoas:[{nome:"Josiane Gomes",funcao:"Diretora"},{nome:"Inácia Costa",funcao:"Associada"}]},
+  { cargo:"Ancião Administrativo", pessoas:[{nome:"José Ribamar Junior"}]},
+  { cargo:"Ancionato", pessoas:[{nome:"Fernando Silva"},{nome:"Iago Ricardo"},{nome:"Jailson Ribeiro"},{nome:"José Ribamar Junior"}]},
+  { cargo:"Círculo de Oração", pessoas:[{nome:"Benerides Selares",funcao:"Diretora"}]},
+  { cargo:"Comunicação", pessoas:[{nome:"Ellayne Crystine",funcao:"Diretora"},{nome:"Eliedson Raposo",funcao:"Associado"}]},
+  { cargo:"Diáconos", pessoas:[{nome:"Alcionor Frazão"},{nome:"Fernando Silva"},{nome:"Aldonio Vieira"},{nome:"Hermes Junior"},{nome:"Iago Ricardo"}]}
 ];
 
 data.sort((a,b)=>a.cargo.localeCompare(b.cargo,"pt-BR"));
@@ -213,18 +185,14 @@ data.sort((a,b)=>a.cargo.localeCompare(b.cargo,"pt-BR"));
 const list=document.getElementById("list");
 const search=document.getElementById("search");
 
-/* ===== RENDER COM BUSCA SEM ACENTOS ===== */
 function render(filter=""){
   list.innerHTML="";
-  const f = normalizeText(filter);
-
   data.forEach(item=>{
-    const cargoMatch = normalizeText(item.cargo).includes(f);
-
-    const pessoas = item.pessoas.filter(p=>{
-      return normalizeText(p.nome).includes(f) ||
-        (p.funcao && normalizeText(p.funcao).includes(f));
-    });
+    const cargoMatch = normalize(item.cargo).includes(filter);
+    const pessoas = item.pessoas.filter(p =>
+      normalize(p.nome).includes(filter) ||
+      (p.funcao && normalize(p.funcao).includes(filter))
+    );
 
     if(!cargoMatch && pessoas.length===0) return;
 
@@ -232,13 +200,12 @@ function render(filter=""){
     card.className="card";
 
     let html=`<div class="cargo">${item.cargo}</div>`;
-
     (cargoMatch?item.pessoas:pessoas).forEach(p=>{
-      const isDiretor=p.funcao && normalizeText(p.funcao).includes("diretor");
+      const isDiretor = p.funcao && normalize(p.funcao).includes("diretor");
       html+=`
         <div class="pessoa">
           <span>${p.nome}</span>
-          ${p.funcao?`<span class="funcao ${isDiretor?'diretor':''}">${p.funcao}</span>`:""}
+          ${p.funcao ? `<span class="funcao ${isDiretor?'diretor':''}">${p.funcao}</span>` : ""}
         </div>`;
     });
 
@@ -247,7 +214,10 @@ function render(filter=""){
   });
 }
 
-search.addEventListener("input",e=>render(e.target.value));
+search.addEventListener("input",e=>{
+  render(normalize(e.target.value));
+});
+
 render();
 </script>
 
