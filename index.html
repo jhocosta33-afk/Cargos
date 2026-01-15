@@ -2,106 +2,132 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<title>CARGOS IASD IGUAÍBA – 2026</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CARGOS IASD IGUAÍBA - 2026</title>
 
 <!-- PWA -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#020617">
 <link rel="apple-touch-icon" href="icon-192.png">
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 :root{
   --bg:#020617;
-  --card:#050b1a;
-  --accent:#38bdf8;
+  --card:#020617;
+  --border:#1e293b;
+  --primary:#38bdf8;
   --text:#e5e7eb;
   --muted:#94a3b8;
+  --highlight:#22c55e;
 }
 
-*{
-  box-sizing:border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
-}
+*{ box-sizing:border-box; }
 
 body{
   margin:0;
-  background:linear-gradient(180deg,#020617,#020617 60%,#030a1f);
+  font-family:'Inter', sans-serif;
+  background:#020617;
   color:var(--text);
 }
 
-/* HEADER */
+/* ===== TOPO ===== */
 header{
+  padding:28px 16px 22px;
   text-align:center;
-  padding:28px 16px 18px;
 }
 
-header img{
-  max-width:160px;
+.logo-box{
+  display:flex;
+  justify-content:center;
   margin-bottom:12px;
 }
 
+.logo-box img{
+  width:90px;
+  background:#ffffff;
+  padding:10px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.45);
+}
+
 header h1{
-  font-size:1.3rem;
-  margin:0;
-  letter-spacing:1px;
+  margin:10px 0 0;
+  font-size:22px;
+  font-weight:700;
 }
 
-header p{
-  margin:6px 0 0;
-  font-size:0.85rem;
-  color:var(--muted);
-}
-
-/* SEARCH */
+/* ===== BUSCA ===== */
 .search-box{
-  padding:14px 16px;
+  padding:0 16px 20px;
 }
 
 .search-box input{
   width:100%;
-  padding:14px;
-  border-radius:14px;
-  border:none;
-  outline:none;
-  font-size:1rem;
-  background:#0b1229;
-  color:#fff;
+  padding:14px 16px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background:#020617;
+  color:var(--text);
+  font-size:16px;
 }
 
-/* LIST */
-.container{
-  padding:10px 14px 40px;
+/* ===== LISTA ===== */
+#list{
+  padding:0 12px 32px;
 }
 
 .card{
-  background:linear-gradient(135deg,#050b1a,#030819);
-  border-radius:16px;
-  padding:14px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.45);
+}
+
+.cargo{
+  font-size:18px;
+  font-weight:700;
+  color:var(--primary);
   margin-bottom:12px;
-  box-shadow:0 8px 20px rgba(0,0,0,.4);
+  padding-bottom:8px;
+  border-bottom:1px solid var(--border);
 }
 
-.card h2{
-  margin:0 0 8px;
-  font-size:1rem;
-  color:var(--accent);
-  letter-spacing:.5px;
+.pessoa{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  font-size:15px;
 }
 
-.people{
+.pessoa:not(:last-child){
+  border-bottom:1px dashed var(--border);
+}
+
+.funcao{
+  font-size:13px;
+  font-weight:600;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid var(--border);
   color:var(--muted);
-  font-size:.9rem;
-  line-height:1.4;
 }
 
-/* FOOTER */
+.funcao.diretor{
+  background:var(--highlight);
+  color:#020617;
+  border-color:var(--highlight);
+}
+
+/* ===== RODAPÉ ===== */
 footer{
   text-align:center;
-  padding:18px;
-  font-size:.75rem;
-  color:#64748b;
+  font-size:12px;
+  color:var(--muted);
+  padding:20px 10px 30px;
 }
 </style>
 </head>
@@ -109,109 +135,240 @@ footer{
 <body>
 
 <header>
-  <img src="logo-iasd.png" alt="Logo IASD">
-  <h1>CARGOS IASD IGUAÍBA - 2026</h1>
-  <p>Igreja Adventista do Sétimo Dia</p>
+  <div class="logo-box">
+    <img src="logo-iasd.png" alt="Igreja Adventista do Sétimo Dia">
+  </div>
+  <h1>CARGOS IASD IGUAÍBA – 2026</h1>
 </header>
 
 <div class="search-box">
-  <input type="text" id="search" placeholder="Pesquisar nome ou cargo...">
+  <input type="text" id="search" placeholder="🔍 Pesquisar nome, cargo ou função">
 </div>
 
-<div class="container" id="list">
-
-  <div class="card">
-    <h2>AÇÃO SOLIDÁRIA ADVENTISTA</h2>
-    <div class="people">Diretora: Josiane Gomes</div>
-    <div class="people">Associada: Inácia Costa</div>
-  </div>
-
-  <div class="card">
-    <h2>ANCIÃO ADMINISTRATIVO</h2>
-    <div class="people">José Ribamar Junior</div>
-  </div>
-
-  <div class="card">
-    <h2>ANCIANATO</h2>
-    <div class="people">Fernando Silva, Iago Ricardo, Jailson Ribeiro, José Ribamar Junior</div>
-  </div>
-
-  <div class="card">
-    <h2>CÍRCULO DE ORAÇÃO</h2>
-    <div class="people">Diretora: Benerides Selares</div>
-  </div>
-
-  <div class="card">
-    <h2>COMUNICAÇÃO</h2>
-    <div class="people">Diretora: Ellayne Crystine</div>
-    <div class="people">Associado: Eliedson Raposo</div>
-  </div>
-
-  <div class="card">
-    <h2>DIÁCONOS</h2>
-    <div class="people">Chefe: Amarildo Silva</div>
-    <div class="people">
-      Alcionor Frazão, Fernando Silva, Aldonio Vieira, Hermes Junior,
-      Iago Ricardo, Igor Rodrigo, Jardson Frazão, Jonathan Pereira,
-      Jonns William, Joseph Santos, Leandro Silva
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>DIACONISAS</h2>
-    <div class="people">Chefe: Sirle Sá</div>
-    <div class="people">
-      Gilvana Conceição, Hildene Frazão, Inácia Costa, Jacilene Selares,
-      Marlete Sousa, Merineide de Sousa
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>ESCOLA SABATINA</h2>
-    <div class="people">Diretora: Jacilene Selares</div>
-    <div class="people">Associada: Ana Beatriz</div>
-  </div>
-
-  <div class="card">
-    <h2>LIBERDADE RELIGIOSA</h2>
-    <div class="people">Diretor: Iago Ricardo</div>
-  </div>
-
-  <div class="card">
-    <h2>MÚSICA</h2>
-    <div class="people">Diretor: Yan Cristhian</div>
-    <div class="people">Equipe: Ana Sara, Jadia Thais, Ana Vitória</div>
-  </div>
-
-  <div class="card">
-    <h2>SECRETARIA</h2>
-    <div class="people">Diretor: Joseph Santos</div>
-  </div>
-
-  <div class="card">
-    <h2>TESOURARIA</h2>
-    <div class="people">Diretor: Jonathan Pereira</div>
-    <div class="people">Associado: Yan Cristhian</div>
-  </div>
-
-</div>
+<div id="list"></div>
 
 <footer>
-  © IASD Iguaíba — 2026
+  Igreja Adventista do Sétimo Dia • Iguaíba • 2026
 </footer>
 
 <script>
-const search = document.getElementById("search");
-const cards = document.querySelectorAll(".card");
+let data = [
 
-search.addEventListener("input", () => {
-  const value = search.value.toLowerCase();
-  cards.forEach(card => {
-    card.style.display = card.innerText.toLowerCase().includes(value)
-      ? "block"
-      : "none";
+{ cargo:"Ação Solidária Adventista", pessoas:[
+  {nome:"Josiane Gomes", funcao:"Diretora"},
+  {nome:"Inácia Costa", funcao:"Associada"}
+]},
+
+{ cargo:"Ancião Administrativo", pessoas:[
+  {nome:"José Ribamar Junior"}
+]},
+
+{ cargo:"Ancionato", pessoas:[
+  {nome:"Fernando Silva"},
+  {nome:"Iago Ricardo"},
+  {nome:"Jailson Ribeiro"},
+  {nome:"José Ribamar Junior"}
+]},
+
+{ cargo:"Círculo de Oração", pessoas:[
+  {nome:"Benerides Selares", funcao:"Diretora"}
+]},
+
+{ cargo:"Comunicação", pessoas:[
+  {nome:"Ellayne Crystine", funcao:"Diretora"},
+  {nome:"Eliedson Raposo", funcao:"Associado"}
+]},
+
+{ cargo:"Coordenador de Interessados", pessoas:[
+  {nome:"Viviane Gomes", funcao:"Diretora"},
+  {nome:"Flavia Cristina", funcao:"Associada"}
+]},
+
+{ cargo:"Diaconisa Chefe", pessoas:[
+  {nome:"Sirle Sá"}
+]},
+
+{ cargo:"Diaconisas", pessoas:[
+  {nome:"Gilvana Conceição"},
+  {nome:"Hildene Frazão"},
+  {nome:"Inácia Costa"},
+  {nome:"Jacilene Selares"},
+  {nome:"Marlete Sousa"},
+  {nome:"Merineide de Sousa"}
+]},
+
+{ cargo:"Diácono Chefe", pessoas:[
+  {nome:"Amarildo Silva"}
+]},
+
+{ cargo:"Diáconos", pessoas:[
+  {nome:"Alcionor Frazão"},
+  {nome:"Fernando Silva"},
+  {nome:"Aldonio Vieira"},
+  {nome:"Hermes Junior"},
+  {nome:"Iago Ricardo"},
+  {nome:"Igor Rodrigo"},
+  {nome:"Jardson Frazão"},
+  {nome:"Jonathan Pereira"},
+  {nome:"Jonns William"},
+  {nome:"Joseph Santos"},
+  {nome:"Leandro Silva"}
+]},
+
+{ cargo:"Escola Sabatina", pessoas:[
+  {nome:"Jacilene Selares", funcao:"Diretora"},
+  {nome:"Ana Beatriz", funcao:"Associada"}
+]},
+
+{ cargo:"Evangelismo", pessoas:[
+  {nome:"Benerides Selares", funcao:"Diretora"}
+]},
+
+{ cargo:"Liberdade Religiosa", pessoas:[
+  {nome:"Iago Ricardo", funcao:"Diretor"}
+]},
+
+{ cargo:"Ministério da Criança", pessoas:[
+  {nome:"Ana Karla", funcao:"Diretora"},
+  {nome:"Ana Sara", funcao:"Associada"}
+]},
+
+{ cargo:"Ministério da Família", pessoas:[
+  {nome:"Jailson Ribeiro", funcao:"Diretor"},
+  {nome:"Polyana Pereira", funcao:"Diretora"}
+]},
+
+{ cargo:"Ministério da Mulher", pessoas:[
+  {nome:"Joelma Sá", funcao:"Diretora"},
+  {nome:"Sirle Sá", funcao:"Associada"}
+]},
+
+{ cargo:"Ministério das Possibilidades", pessoas:[
+  {nome:"Jadia Thais", funcao:"Diretora"}
+]},
+
+{ cargo:"Ministério do Adolescente", pessoas:[
+  {nome:"Andreyna Nunes", funcao:"Diretora"},
+  {nome:"Ana Clara", funcao:"Associada"},
+  {nome:"Leandro Silva", funcao:"Associado"}
+]},
+
+{ cargo:"Ministério dos Aventureiros", pessoas:[
+  {nome:"Ana Clara", funcao:"Diretora"},
+  {nome:"Joellyny Marcelly", funcao:"Associada"},
+  {nome:"Leandro Silva", funcao:"Associado"}
+]},
+
+{ cargo:"Ministério dos Desbravadores", pessoas:[
+  {nome:"Ana Beatriz", funcao:"Diretora"},
+  {nome:"Evilla Wanessa", funcao:"Associada"},
+  {nome:"Glauber Ruan", funcao:"Associado"}
+]},
+
+{ cargo:"Ministério dos Homens", pessoas:[
+  {nome:"Iago Ricardo", funcao:"Diretor"}
+]},
+
+{ cargo:"Ministério Jovem", pessoas:[
+  {nome:"Igor Rodrigo", funcao:"Diretor"},
+  {nome:"Joellyny Marcelly", funcao:"Associada"}
+]},
+
+{ cargo:"Ministério Pessoal", pessoas:[
+  {nome:"Fernando Silva", funcao:"Diretor"},
+  {nome:"Joelma Sá", funcao:"Associada"}
+]},
+
+{ cargo:"Mordomia Cristã", pessoas:[
+  {nome:"José Nunes", funcao:"Diretor"},
+  {nome:"Jonns William", funcao:"Associado"}
+]},
+
+{ cargo:"Música", pessoas:[
+  {nome:"Yan Cristhian", funcao:"Diretor"},
+  {nome:"Ana Sara", funcao:"Equipe"},
+  {nome:"Jadia Thais", funcao:"Equipe"},
+  {nome:"Ana Vitória", funcao:"Equipe"}
+]},
+
+{ cargo:"Patrimônio", pessoas:[
+  {nome:"Elias Lima", funcao:"Diretor"}
+]},
+
+{ cargo:"Pequenos Grupos", pessoas:[
+  {nome:"José Ribamar Junior", funcao:"Diretor"},
+  {nome:"Jailson Ribeiro", funcao:"Associado"}
+]},
+
+{ cargo:"Publicações", pessoas:[
+  {nome:"Jonathan Pereira", funcao:"Diretor"}
+]},
+
+{ cargo:"Recepção", pessoas:[
+  {nome:"Merindalva de Sousa", funcao:"Diretora"},
+  {nome:"Camila Santos", funcao:"Associada"}
+]},
+
+{ cargo:"Saúde", pessoas:[
+  {nome:"Ana Ricarda", funcao:"Diretora"},
+  {nome:"Andreyna Nunes", funcao:"Associada"}
+]},
+
+{ cargo:"Secretaria", pessoas:[
+  {nome:"Joseph Santos", funcao:"Diretor"}
+]},
+
+{ cargo:"Sonoplastia", pessoas:[
+  {nome:"Jonns William", funcao:"Diretor"},
+  {nome:"Ericles Felipe", funcao:"Equipe"},
+  {nome:"Eliedson Raposo", funcao:"Equipe"},
+  {nome:"Joseph Santos", funcao:"Equipe"},
+  {nome:"Yan Cristhian", funcao:"Equipe"}
+]},
+
+{ cargo:"Tesouraria", pessoas:[
+  {nome:"Jonathan Pereira", funcao:"Diretor"},
+  {nome:"Yan Cristhian", funcao:"Associado"}
+]}
+
+];
+
+data.sort((a,b)=>a.cargo.localeCompare(b.cargo,"pt-BR"));
+
+const list = document.getElementById("list");
+const search = document.getElementById("search");
+
+function render(filter=""){
+  list.innerHTML="";
+  data.forEach(item=>{
+    const cargoMatch = item.cargo.toLowerCase().includes(filter);
+    const pessoas = item.pessoas.filter(p =>
+      p.nome.toLowerCase().includes(filter) ||
+      (p.funcao && p.funcao.toLowerCase().includes(filter))
+    );
+    if(!cargoMatch && pessoas.length===0) return;
+
+    const card=document.createElement("div");
+    card.className="card";
+
+    let html=`<div class="cargo">${item.cargo}</div>`;
+
+    (cargoMatch?item.pessoas:pessoas).forEach(p=>{
+      const isDiretor = p.funcao && p.funcao.toLowerCase().includes("diretor");
+      html+=`
+        <div class="pessoa">
+          <span>${p.nome}</span>
+          ${p.funcao ? `<span class="funcao ${isDiretor?'diretor':''}">${p.funcao}</span>` : ""}
+        </div>`;
+    });
+
+    card.innerHTML=html;
+    list.appendChild(card);
   });
-});
+}
+
+search.addEventListener("input",e=>render(e.target.value.toLowerCase()));
+render();
 </script>
 
 </body>
