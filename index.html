@@ -46,10 +46,10 @@ header{
 }
 
 .logo-box img{
-  width:160px;               /* logo maior */
-  padding:6px;               /* menos borda */
-  border-radius:14px;        /* bordas mais suaves */
-  background:#f8fbff;        /* branco mais suave */
+  width:160px;
+  padding:6px;
+  border-radius:14px;
+  background:#f8fbff;
   box-shadow:0 4px 14px rgba(30,58,138,.22);
 }
 
@@ -163,6 +163,15 @@ footer{
 </footer>
 
 <script>
+/* ===== FUNÇÃO PARA IGNORAR ACENTOS NA BUSCA ===== */
+function normalizeText(text){
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"");
+}
+
+/* ===== DADOS ===== */
 let data = [
 { cargo:"Ação Solidária Adventista", pessoas:[{nome:"Josiane Gomes",funcao:"Diretora"},{nome:"Inácia Costa",funcao:"Associada"}]},
 { cargo:"Ancião Administrativo", pessoas:[{nome:"José Ribamar Junior"}]},
@@ -204,20 +213,33 @@ data.sort((a,b)=>a.cargo.localeCompare(b.cargo,"pt-BR"));
 const list=document.getElementById("list");
 const search=document.getElementById("search");
 
+/* ===== RENDER COM BUSCA SEM ACENTOS ===== */
 function render(filter=""){
   list.innerHTML="";
+  const f = normalizeText(filter);
+
   data.forEach(item=>{
-    const cargoMatch=item.cargo.toLowerCase().includes(filter);
-    const pessoas=item.pessoas.filter(p=>p.nome.toLowerCase().includes(filter)||(p.funcao&&p.funcao.toLowerCase().includes(filter)));
+    const cargoMatch = normalizeText(item.cargo).includes(f);
+
+    const pessoas = item.pessoas.filter(p=>{
+      return normalizeText(p.nome).includes(f) ||
+        (p.funcao && normalizeText(p.funcao).includes(f));
+    });
+
     if(!cargoMatch && pessoas.length===0) return;
 
     const card=document.createElement("div");
     card.className="card";
 
     let html=`<div class="cargo">${item.cargo}</div>`;
+
     (cargoMatch?item.pessoas:pessoas).forEach(p=>{
-      const isDiretor=p.funcao&&p.funcao.toLowerCase().includes("diretor");
-      html+=`<div class="pessoa"><span>${p.nome}</span>${p.funcao?`<span class="funcao ${isDiretor?'diretor':''}">${p.funcao}</span>`:""}</div>`;
+      const isDiretor=p.funcao && normalizeText(p.funcao).includes("diretor");
+      html+=`
+        <div class="pessoa">
+          <span>${p.nome}</span>
+          ${p.funcao?`<span class="funcao ${isDiretor?'diretor':''}">${p.funcao}</span>`:""}
+        </div>`;
     });
 
     card.innerHTML=html;
@@ -225,7 +247,7 @@ function render(filter=""){
   });
 }
 
-search.addEventListener("input",e=>render(e.target.value.toLowerCase()));
+search.addEventListener("input",e=>render(e.target.value));
 render();
 </script>
 
