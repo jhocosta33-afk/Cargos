@@ -1,4 +1,8 @@
-const CACHE_NAME = "cargos-iasd-2026-05";
+// ======= VERSÃO DO CACHE =======
+// 🔴 MUDE ESTE NÚMERO SEMPRE QUE ALTERAR O INDEX
+const CACHE_VERSION = "v2026-1.0.0";
+
+const CACHE_NAME = `cargos-iasd-${CACHE_VERSION}`;
 
 const FILES_TO_CACHE = [
   "./",
@@ -9,37 +13,45 @@ const FILES_TO_CACHE = [
   "./icon-512.png"
 ];
 
-// INSTALAÇÃO
+// ======= INSTALL =======
 self.addEventListener("install", event => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       return cache.addAll(FILES_TO_CACHE);
     })
   );
-  self.skipWaiting();
 });
 
-// ATIVAÇÃO (remove caches antigos)
+// ======= ACTIVATE =======
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cache => {
-          if (cache !== CACHE_NAME) {
-            return caches.delete(cache);
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.map(key => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
           }
         })
-      );
-    })
+      )
+    ).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
-// FETCH (offline first)
+// ======= FETCH =======
 self.addEventListener("fetch", event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
+    fetch(event.request)
+      .then(response => {
+        // Atualiza cache com a versão nova
+        const responseClone = response.clone();
+        caches.open(CACHE_NAME).then(cache => {
+          cache.put(event.request, responseClone);
+        });
+        return response;
+      })
+      .catch(() =>
+        caches.match(event.request)
+      )
   );
 });
