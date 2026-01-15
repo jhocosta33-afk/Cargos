@@ -1,14 +1,15 @@
-const CACHE_NAME = "cargos-iasd-2026-v1";
+const CACHE_NAME = "cargos-iasd-2026-01";
 
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
   "./manifest.json",
+  "./logo-iasd.png",
   "./icon-192.png",
   "./icon-512.png"
 ];
 
-// Instala o Service Worker
+// INSTALAÇÃO
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
@@ -18,20 +19,23 @@ self.addEventListener("install", event => {
   self.skipWaiting();
 });
 
-// Ativa e limpa cache antigo
+// ATIVAÇÃO (remove caches antigos)
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.filter(key => key !== CACHE_NAME)
-            .map(key => caches.delete(key))
-      )
-    )
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cache => {
+          if (cache !== CACHE_NAME) {
+            return caches.delete(cache);
+          }
+        })
+      );
+    })
   );
   self.clients.claim();
 });
 
-// Intercepta requisições (modo offline)
+// FETCH (offline first)
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request).then(response => {
