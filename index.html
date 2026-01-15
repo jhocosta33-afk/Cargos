@@ -5,71 +5,65 @@
 <title>CARGOS IASD IGUAÍBA – 2026</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="manifest" href="manifest.json">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#eaf6ff;
+  --bg1:#d9f0ff;
+  --bg2:#eef8ff;
   --card:#dff1ff;
   --border:#b6dbf2;
-  --primary:#2b6cb0;
+  --primary:#1f5fa8;
+  --secondary:#2b7cd3;
   --text:#1e293b;
   --muted:#4a6fa5;
-  --highlight:#3182ce;
 }
 
 *{ box-sizing:border-box; }
 
 body{
   margin:0;
-  font-family:'Inter', sans-serif;
-  background:linear-gradient(180deg,#d9f0ff,#eef8ff);
+  font-family:'Inter',sans-serif;
+  background:linear-gradient(180deg,var(--bg1),var(--bg2));
   color:var(--text);
 }
 
 /* ===== TOPO ===== */
 header{
-  padding:26px 16px 18px;
+  padding:24px 16px 10px;
   text-align:center;
 }
 
-.logo-box{
-  display:flex;
-  justify-content:center;
+header img{
+  width:140px;
   margin-bottom:6px;
 }
 
-.logo-box img{
-  width:120px;
-  border-radius:22px;
-}
-
 header h1{
-  margin:8px 0 0;
+  margin:6px 0 0;
   font-size:22px;
   font-weight:700;
   color:var(--primary);
 }
 
 /* ===== BUSCA ===== */
-.search-box{
-  padding:0 16px 18px;
+.search{
+  padding:14px 16px;
 }
 
-.search-box input{
+.search input{
   width:100%;
   padding:14px 16px;
   border-radius:16px;
   border:1px solid var(--border);
   background:#ffffff;
-  color:var(--text);
   font-size:16px;
 }
 
 /* ===== LISTA ===== */
-#list{
-  padding:0 12px 32px;
+#lista{
+  padding:0 12px 30px;
 }
 
 .card{
@@ -85,16 +79,16 @@ header h1{
   font-size:17px;
   font-weight:700;
   color:var(--primary);
-  margin-bottom:12px;
-  padding-bottom:8px;
   border-bottom:1px solid var(--border);
+  padding-bottom:8px;
+  margin-bottom:10px;
 }
 
 .pessoa{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:8px 0;
+  padding:6px 0;
   font-size:15px;
 }
 
@@ -113,12 +107,11 @@ header h1{
 }
 
 .funcao.diretor{
-  background:var(--highlight);
-  color:#ffffff;
-  border-color:var(--highlight);
+  background:var(--secondary);
+  color:#fff;
+  border-color:var(--secondary);
 }
 
-/* ===== RODAPÉ ===== */
 footer{
   text-align:center;
   font-size:12px;
@@ -131,81 +124,101 @@ footer{
 <body>
 
 <header>
-  <div class="logo-box">
-    <img src="logo-iasd.png" alt="Igreja Adventista do Sétimo Dia">
-  </div>
+  <img src="logo-iasd.png" alt="Logo IASD">
   <h1>CARGOS IASD IGUAÍBA – 2026</h1>
 </header>
 
-<div class="search-box">
+<div class="search">
   <input type="text" id="search" placeholder="🔍 Pesquisar nome, cargo ou função">
 </div>
 
-<div id="list"></div>
+<div id="lista"></div>
 
 <footer>
   Igreja Adventista do Sétimo Dia • Iguaíba • 2026
 </footer>
 
 <script>
-let data = [
-  { cargo:"Ação Solidária Adventista", pessoas:[
-    {nome:"Josiane Gomes", funcao:"Diretora"},
-    {nome:"Inácia Costa", funcao:"Associada"}
-  ]},
-  { cargo:"Ancião Administrativo", pessoas:[
-    {nome:"José Ribamar Junior"}
-  ]},
-  { cargo:"Ancionato", pessoas:[
-    {nome:"Fernando Silva"},
-    {nome:"Iago Ricardo"},
-    {nome:"Jailson Ribeiro"},
-    {nome:"José Ribamar Junior"}
-  ]},
-  { cargo:"Círculo de Oração", pessoas:[
-    {nome:"Benerides Selares", funcao:"Diretora"}
-  ]},
-  { cargo:"Comunicação", pessoas:[
-    {nome:"Ellayne Crystine", funcao:"Diretora"},
-    {nome:"Eliedson Raposo", funcao:"Associado"}
-  ]},
-  { cargo:"Diácono Chefe", pessoas:[
-    {nome:"Amarildo Silva"}
-  ]},
-  { cargo:"Diáconos", pessoas:[
-    {nome:"Alcionor Frazão"},
-    {nome:"Fernando Silva"},
-    {nome:"Aldonio Vieira"},
-    {nome:"Hermes Junior"},
-    {nome:"Iago Ricardo"},
-    {nome:"Igor Rodrigo"},
-    {nome:"Jardson Frazão"},
-    {nome:"Jonathan Pereira"},
-    {nome:"Jonns William"},
-    {nome:"Joseph Santos"},
-    {nome:"Leandro Silva"}
-  ]},
-  { cargo:"Liberdade Religiosa", pessoas:[
-    {nome:"Iago Ricardo", funcao:"Diretor"}
-  ]},
-  { cargo:"Tesouraria", pessoas:[
-    {nome:"Jonathan Pereira", funcao:"Diretor"},
-    {nome:"Yan Cristhian", funcao:"Associado"}
-  ]}
+const dados = [
+  {
+    cargo:"Ação Solidária Adventista",
+    pessoas:[
+      {nome:"Josiane Gomes",funcao:"Diretora"},
+      {nome:"Inácia Costa",funcao:"Associada"}
+    ]
+  },
+  {
+    cargo:"Ancião Administrativo",
+    pessoas:[
+      {nome:"José Ribamar Junior"}
+    ]
+  },
+  {
+    cargo:"Ancionato",
+    pessoas:[
+      {nome:"Fernando Silva"},
+      {nome:"Iago Ricardo"},
+      {nome:"Jailson Ribeiro"},
+      {nome:"José Ribamar Junior"}
+    ]
+  },
+  {
+    cargo:"Círculo de Oração",
+    pessoas:[
+      {nome:"Benerides Selares",funcao:"Diretora"}
+    ]
+  },
+  {
+    cargo:"Comunicação",
+    pessoas:[
+      {nome:"Ellayne Crystine",funcao:"Diretora"},
+      {nome:"Eliedson Raposo",funcao:"Associado"}
+    ]
+  },
+  {
+    cargo:"Diáconos",
+    pessoas:[
+      {nome:"Amarildo Silva",funcao:"Chefe"},
+      {nome:"Alcionor Frazão"},
+      {nome:"Fernando Silva"},
+      {nome:"Aldonio Vieira"},
+      {nome:"Hermes Junior"},
+      {nome:"Iago Ricardo"},
+      {nome:"Igor Rodrigo"},
+      {nome:"Jardson Frazão"},
+      {nome:"Jonathan Pereira"},
+      {nome:"Jonns William"},
+      {nome:"Joseph Santos"},
+      {nome:"Leandro Silva"}
+    ]
+  },
+  {
+    cargo:"Liberdade Religiosa",
+    pessoas:[
+      {nome:"Iago Ricardo",funcao:"Diretor"}
+    ]
+  },
+  {
+    cargo:"Tesouraria",
+    pessoas:[
+      {nome:"Jonathan Pereira",funcao:"Diretor"},
+      {nome:"Yan Cristhian",funcao:"Associado"}
+    ]
+  }
 ];
 
-data.sort((a,b)=>a.cargo.localeCompare(b.cargo,"pt-BR"));
+dados.sort((a,b)=>a.cargo.localeCompare(b.cargo,"pt-BR"));
 
-const list = document.getElementById("list");
-const search = document.getElementById("search");
+const lista=document.getElementById("lista");
+const search=document.getElementById("search");
 
-function render(filter=""){
-  list.innerHTML="";
-  data.forEach(item=>{
-    const cargoMatch = item.cargo.toLowerCase().includes(filter);
-    const pessoas = item.pessoas.filter(p =>
-      p.nome.toLowerCase().includes(filter) ||
-      (p.funcao && p.funcao.toLowerCase().includes(filter))
+function render(filtro=""){
+  lista.innerHTML="";
+  dados.forEach(item=>{
+    const cargoMatch=item.cargo.toLowerCase().includes(filtro);
+    const pessoas=item.pessoas.filter(p=>
+      p.nome.toLowerCase().includes(filtro) ||
+      (p.funcao && p.funcao.toLowerCase().includes(filtro))
     );
     if(!cargoMatch && pessoas.length===0) return;
 
@@ -213,18 +226,17 @@ function render(filter=""){
     card.className="card";
 
     let html=`<div class="cargo">${item.cargo}</div>`;
-
     (cargoMatch?item.pessoas:pessoas).forEach(p=>{
-      const isDiretor = p.funcao && p.funcao.toLowerCase().includes("diretor");
+      const isDir=p.funcao && p.funcao.toLowerCase().includes("diretor");
       html+=`
         <div class="pessoa">
           <span>${p.nome}</span>
-          ${p.funcao ? `<span class="funcao ${isDiretor?'diretor':''}">${p.funcao}</span>` : ""}
+          ${p.funcao?`<span class="funcao ${isDir?'diretor':''}">${p.funcao}</span>`:""}
         </div>`;
     });
 
     card.innerHTML=html;
-    list.appendChild(card);
+    lista.appendChild(card);
   });
 }
 
@@ -232,14 +244,10 @@ search.addEventListener("input",e=>render(e.target.value.toLowerCase()));
 render();
 </script>
 
-<!-- REGISTRO DO SERVICE WORKER (OFFLINE) -->
+<!-- OFFLINE -->
 <script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js")
-      .then(reg => console.log("Service Worker registrado", reg))
-      .catch(err => console.log("Erro no Service Worker", err));
-  });
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.register("./sw.js");
 }
 </script>
 
