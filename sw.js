@@ -1,4 +1,4 @@
-const CACHE_NAME = "cargos-iasd-2026-02";
+const CACHE_NAME = "cargos-iasd-2026-03";
 
 const FILES_TO_CACHE = [
   "./",
