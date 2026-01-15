@@ -1,6 +1,6 @@
 // ======= VERSÃO DO CACHE =======
 // 🔴 MUDE ESTE NÚMERO SEMPRE QUE ALTERAR O INDEX
-const CACHE_VERSION = "v2026-1.0.0";
+const CACHE_VERSION = "v2026-1.0.1";
 
 const CACHE_NAME = `cargos-iasd-${CACHE_VERSION}`;
 
