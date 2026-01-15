@@ -229,5 +229,14 @@ search.addEventListener("input",e=>render(e.target.value.toLowerCase()));
 render();
 </script>
 
+<!-- SERVICE WORKER (OFFLINE) -->
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js");
+  });
+}
+</script>
+
 </body>
 </html>
