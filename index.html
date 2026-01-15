@@ -16,12 +16,12 @@
 :root{
   --bg1:#c7ddff;
   --bg2:#e4efff;
-  --card:#eaf2ff;
+  --card:#eef4ff;
   --border:#b6ccf5;
-  --primary:#1e40af;
+  --primary:#1e3a8a;
   --text:#0f172a;
   --muted:#475569;
-  --highlight:#2563eb;
+  --highlight:#15803d;
 }
 
 *{ box-sizing:border-box; }
@@ -33,7 +33,7 @@ body{
   color:var(--text);
 }
 
-/* ===== TOPO ===== */
+/* TOPO */
 header{
   padding:26px 16px 18px;
   text-align:center;
@@ -42,19 +42,18 @@ header{
 .logo-box{
   display:flex;
   justify-content:center;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 
 .logo-box img{
-  width:190px;
-  padding:0;
-  background:none;
-  border-radius:0;
-  box-shadow:none;
+  width:140px;
+  padding:4px;
+  border-radius:14px;
+  background:transparent;
 }
 
 header h1{
-  margin:10px 0 4px;
+  margin:8px 0 4px;
   font-size:22px;
   font-weight:700;
   color:var(--primary);
@@ -66,7 +65,7 @@ header p{
   color:var(--muted);
 }
 
-/* ===== BUSCA ===== */
+/* BUSCA */
 .search-box{
   padding:0 16px 22px;
 }
@@ -81,7 +80,7 @@ header p{
   font-size:16px;
 }
 
-/* ===== LISTA ===== */
+/* LISTA */
 #list{
   padding:0 12px 32px;
 }
@@ -92,7 +91,6 @@ header p{
   border-radius:20px;
   padding:16px;
   margin-bottom:16px;
-  box-shadow:0 6px 16px rgba(30,64,175,.18);
 }
 
 .cargo{
@@ -132,7 +130,7 @@ header p{
   border-color:var(--highlight);
 }
 
-/* ===== RODAPÉ ===== */
+/* RODAPÉ */
 footer{
   text-align:center;
   font-size:12px;
@@ -163,7 +161,7 @@ footer{
 </footer>
 
 <script>
-// ===== FUNÇÃO PARA REMOVER ACENTOS (APENAS PARA BUSCA) =====
+// ================= BUSCA SEM ACENTO =================
 function normalize(text){
   return text
     .toLowerCase()
@@ -171,13 +169,41 @@ function normalize(text){
     .replace(/[\u0300-\u036f]/g,"");
 }
 
+// ================= DADOS COMPLETOS =================
 let data = [
-  { cargo:"Ação Solidária Adventista", pessoas:[{nome:"Josiane Gomes",funcao:"Diretora"},{nome:"Inácia Costa",funcao:"Associada"}]},
-  { cargo:"Ancião Administrativo", pessoas:[{nome:"José Ribamar Junior"}]},
-  { cargo:"Ancionato", pessoas:[{nome:"Fernando Silva"},{nome:"Iago Ricardo"},{nome:"Jailson Ribeiro"},{nome:"José Ribamar Junior"}]},
-  { cargo:"Círculo de Oração", pessoas:[{nome:"Benerides Selares",funcao:"Diretora"}]},
-  { cargo:"Comunicação", pessoas:[{nome:"Ellayne Crystine",funcao:"Diretora"},{nome:"Eliedson Raposo",funcao:"Associado"}]},
-  { cargo:"Diáconos", pessoas:[{nome:"Alcionor Frazão"},{nome:"Fernando Silva"},{nome:"Aldonio Vieira"},{nome:"Hermes Junior"},{nome:"Iago Ricardo"}]}
+{ cargo:"Ação Solidária Adventista", pessoas:[{nome:"Josiane Gomes",funcao:"Diretora"},{nome:"Inácia Costa",funcao:"Associada"}]},
+{ cargo:"Ancião Administrativo", pessoas:[{nome:"José Ribamar Junior"}]},
+{ cargo:"Ancionato", pessoas:[{nome:"Fernando Silva"},{nome:"Iago Ricardo"},{nome:"Jailson Ribeiro"},{nome:"José Ribamar Junior"}]},
+{ cargo:"Círculo de Oração", pessoas:[{nome:"Benerides Selares",funcao:"Diretora"}]},
+{ cargo:"Comunicação", pessoas:[{nome:"Ellayne Crystine",funcao:"Diretora"},{nome:"Eliedson Raposo",funcao:"Associado"}]},
+{ cargo:"Coordenador de Interessados", pessoas:[{nome:"Viviane Gomes",funcao:"Diretora"},{nome:"Flavia Cristina",funcao:"Associada"}]},
+{ cargo:"Diaconisa Chefe", pessoas:[{nome:"Sirle Sá"}]},
+{ cargo:"Diaconisas", pessoas:[{nome:"Gilvana Conceição"},{nome:"Hildene Frazão"},{nome:"Inácia Costa"},{nome:"Jacilene Selares"},{nome:"Marlete Sousa"},{nome:"Merineide de Sousa"}]},
+{ cargo:"Diácono Chefe", pessoas:[{nome:"Amarildo Silva"}]},
+{ cargo:"Diáconos", pessoas:[{nome:"Alcionor Frazão"},{nome:"Fernando Silva"},{nome:"Aldonio Vieira"},{nome:"Hermes Junior"},{nome:"Iago Ricardo"},{nome:"Igor Rodrigo"},{nome:"Jardson Frazão"},{nome:"Jonathan Pereira"},{nome:"Jonns William"},{nome:"Joseph Santos"},{nome:"Leandro Silva"}]},
+{ cargo:"Escola Sabatina", pessoas:[{nome:"Jacilene Selares",funcao:"Diretora"},{nome:"Ana Beatriz",funcao:"Associada"}]},
+{ cargo:"Evangelismo", pessoas:[{nome:"Benerides Selares",funcao:"Diretora"}]},
+{ cargo:"Liberdade Religiosa", pessoas:[{nome:"Iago Ricardo",funcao:"Diretor"}]},
+{ cargo:"Ministério da Criança", pessoas:[{nome:"Ana Karla",funcao:"Diretora"},{nome:"Ana Sara",funcao:"Associada"}]},
+{ cargo:"Ministério da Família", pessoas:[{nome:"Jailson Ribeiro",funcao:"Diretor"},{nome:"Polyana Pereira",funcao:"Diretora"}]},
+{ cargo:"Ministério da Mulher", pessoas:[{nome:"Joelma Sá",funcao:"Diretora"},{nome:"Sirle Sá",funcao:"Associada"}]},
+{ cargo:"Ministério das Possibilidades", pessoas:[{nome:"Jadia Thais",funcao:"Diretora"}]},
+{ cargo:"Ministério do Adolescente", pessoas:[{nome:"Andreyna Nunes",funcao:"Diretora"},{nome:"Ana Clara",funcao:"Associada"},{nome:"Leandro Silva",funcao:"Associado"}]},
+{ cargo:"Ministério dos Aventureiros", pessoas:[{nome:"Ana Clara",funcao:"Diretora"},{nome:"Joellyny Marcelly",funcao:"Associada"},{nome:"Leandro Silva",funcao:"Associado"}]},
+{ cargo:"Ministério dos Desbravadores", pessoas:[{nome:"Ana Beatriz",funcao:"Diretora"},{nome:"Evilla Wanessa",funcao:"Associada"},{nome:"Glauber Ruan",funcao:"Associado"}]},
+{ cargo:"Ministério dos Homens", pessoas:[{nome:"Iago Ricardo",funcao:"Diretor"}]},
+{ cargo:"Ministério Jovem", pessoas:[{nome:"Igor Rodrigo",funcao:"Diretor"},{nome:"Joellyny Marcelly",funcao:"Associada"}]},
+{ cargo:"Ministério Pessoal", pessoas:[{nome:"Fernando Silva",funcao:"Diretor"},{nome:"Joelma Sá",funcao:"Associada"}]},
+{ cargo:"Mordomia Cristã", pessoas:[{nome:"José Nunes",funcao:"Diretor"},{nome:"Jonns William",funcao:"Associado"}]},
+{ cargo:"Música", pessoas:[{nome:"Yan Cristhian",funcao:"Diretor"},{nome:"Ana Sara",funcao:"Equipe"},{nome:"Jadia Thais",funcao:"Equipe"},{nome:"Ana Vitória",funcao:"Equipe"}]},
+{ cargo:"Patrimônio", pessoas:[{nome:"Elias Lima",funcao:"Diretor"}]},
+{ cargo:"Pequenos Grupos", pessoas:[{nome:"José Ribamar Junior",funcao:"Diretor"},{nome:"Jailson Ribeiro",funcao:"Associado"}]},
+{ cargo:"Publicações", pessoas:[{nome:"Jonathan Pereira",funcao:"Diretor"}]},
+{ cargo:"Recepção", pessoas:[{nome:"Merindalva de Sousa",funcao:"Diretora"},{nome:"Camila Santos",funcao:"Associada"}]},
+{ cargo:"Saúde", pessoas:[{nome:"Ana Ricarda",funcao:"Diretora"},{nome:"Andreyna Nunes",funcao:"Associada"}]},
+{ cargo:"Secretaria", pessoas:[{nome:"Joseph Santos",funcao:"Diretor"}]},
+{ cargo:"Sonoplastia", pessoas:[{nome:"Jonns William",funcao:"Diretor"},{nome:"Ericles Felipe",funcao:"Equipe"},{nome:"Eliedson Raposo",funcao:"Equipe"},{nome:"Joseph Santos",funcao:"Equipe"},{nome:"Yan Cristhian",funcao:"Equipe"}]},
+{ cargo:"Tesouraria", pessoas:[{nome:"Jonathan Pereira",funcao:"Diretor"},{nome:"Yan Cristhian",funcao:"Associado"}]}
 ];
 
 data.sort((a,b)=>a.cargo.localeCompare(b.cargo,"pt-BR"));
@@ -186,14 +212,14 @@ const list=document.getElementById("list");
 const search=document.getElementById("search");
 
 function render(filter=""){
+  const f = normalize(filter);
   list.innerHTML="";
   data.forEach(item=>{
-    const cargoMatch = normalize(item.cargo).includes(filter);
+    const cargoMatch = normalize(item.cargo).includes(f);
     const pessoas = item.pessoas.filter(p =>
-      normalize(p.nome).includes(filter) ||
-      (p.funcao && normalize(p.funcao).includes(filter))
+      normalize(p.nome).includes(f) ||
+      (p.funcao && normalize(p.funcao).includes(f))
     );
-
     if(!cargoMatch && pessoas.length===0) return;
 
     const card=document.createElement("div");
@@ -201,12 +227,8 @@ function render(filter=""){
 
     let html=`<div class="cargo">${item.cargo}</div>`;
     (cargoMatch?item.pessoas:pessoas).forEach(p=>{
-      const isDiretor = p.funcao && normalize(p.funcao).includes("diretor");
-      html+=`
-        <div class="pessoa">
-          <span>${p.nome}</span>
-          ${p.funcao ? `<span class="funcao ${isDiretor?'diretor':''}">${p.funcao}</span>` : ""}
-        </div>`;
+      const isDiretor=p.funcao&&p.funcao.toLowerCase().includes("diretor");
+      html+=`<div class="pessoa"><span>${p.nome}</span>${p.funcao?`<span class="funcao ${isDiretor?'diretor':''}">${p.funcao}</span>`:""}</div>`;
     });
 
     card.innerHTML=html;
@@ -214,10 +236,7 @@ function render(filter=""){
   });
 }
 
-search.addEventListener("input",e=>{
-  render(normalize(e.target.value));
-});
-
+search.addEventListener("input",e=>render(e.target.value));
 render();
 </script>
 
