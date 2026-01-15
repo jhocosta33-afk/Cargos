@@ -35,22 +35,22 @@ body{
 
 /* ===== TOPO ===== */
 header{
-  padding:26px 16px 18px;
+  padding:20px 16px 18px;
   text-align:center;
 }
 
 .logo-box{
   display:flex;
   justify-content:center;
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 
 .logo-box img{
-  width:130px;
-  padding:8px;
-  border-radius:18px;
-  background:#ffffff;
-  box-shadow:0 6px 16px rgba(30,58,138,.25);
+  width:160px;               /* logo maior */
+  padding:6px;               /* menos borda */
+  border-radius:14px;        /* bordas mais suaves */
+  background:#f8fbff;        /* branco mais suave */
+  box-shadow:0 4px 14px rgba(30,58,138,.22);
 }
 
 header h1{
@@ -227,15 +227,6 @@ function render(filter=""){
 
 search.addEventListener("input",e=>render(e.target.value.toLowerCase()));
 render();
-</script>
-
-<!-- SERVICE WORKER (OFFLINE) -->
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js");
-  });
-}
 </script>
 
 </body>
