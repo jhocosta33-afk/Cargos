@@ -1,4 +1,6 @@
-<html lang="pt-BR"><head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
 <meta charset="UTF-8">
 <title>Cargos IASD Iguaíba – 2026</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -8,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Cargos 2026">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=DM+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -406,7 +408,7 @@ footer {
 .empty span { font-size: 40px; display: block; margin-bottom: 12px; }
 </style>
 </head>
-<body class="is-admin">
+<body>
 
 <header>
   <div class="logo-box">
@@ -414,19 +416,15 @@ footer {
   </div>
   <h1>Cargos IASD Iguaíba – 2026</h1>
   <p>Igreja Adventista do Sétimo Dia</p>
-  <button class="admin-btn active" id="toggle-admin-btn" onclick="toggleAdmin()">✅ Admin</button>
+  <button class="admin-btn" id="toggle-admin-btn" onclick="toggleAdmin()">⚙️ Admin</button>
 </header>
 
-<div class="stats-bar" id="stats-bar">
-    <div class="stat"><div class="stat-num">33</div><div class="stat-label">Cargos</div></div>
-    <div class="stat"><div class="stat-num">45</div><div class="stat-label">Membros</div></div>
-    <div class="stat"><div class="stat-num">76</div><div class="stat-label">Nomeações</div></div>
-  </div>
+<div class="stats-bar" id="stats-bar"></div>
 
 <div class="search-wrap">
   <div class="search-inner">
     <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-      <circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path>
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
     </svg>
     <input type="text" id="search" placeholder="Pesquisar nome, cargo ou função…" autocomplete="off">
   </div>
@@ -434,1120 +432,7 @@ footer {
 
 <button id="add-cargo-btn" onclick="openAddCargo()">＋ Adicionar novo cargo</button>
 
-<div id="list"><div class="card" style="animation-delay: 0.04s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Ação Solidária Adventista</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(0)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Josiane Gomes</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(0,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(0,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Inácia Costa</span>
-          <span class="funcao  ">Associada</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(0,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(0,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(0)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(0)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.08s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Ancião Administrativo</span>
-        <span class="cargo-count">1</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(1)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">José Ribamar Junior</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(1,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(1,0)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(1)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(1)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.12s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Ancionato</span>
-        <span class="cargo-count">4</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(2)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Fernando Silva</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(2,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(2,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Iago Ricardo</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(2,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(2,1)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Jailson Ribeiro</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(2,2)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(2,2)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">José Ribamar Junior</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(2,3)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(2,3)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(2)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(2)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.16s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Círculo de Oração</span>
-        <span class="cargo-count">1</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(3)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Benerides Selares</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(3,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(3,0)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(3)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(3)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.2s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Comunicação</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(4)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Ellayne Crystine</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(4,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(4,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Eliedson Raposo</span>
-          <span class="funcao  ">Associado</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(4,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(4,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(4)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(4)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.24s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Coordenador de Interessados</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(5)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Viviane Gomes</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(5,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(5,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Flavia Cristina</span>
-          <span class="funcao  ">Associada</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(5,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(5,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(5)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(5)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.28s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Diaconisa Chefe</span>
-        <span class="cargo-count">1</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(6)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Sirle Sá</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(6,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(6,0)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(6)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(6)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.32s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Diaconisas</span>
-        <span class="cargo-count">6</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(7)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Gilvana Conceição</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(7,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(7,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Hildene Frazão</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(7,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(7,1)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Inácia Costa</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(7,2)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(7,2)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Jacilene Selares</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(7,3)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(7,3)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Marlete Sousa</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(7,4)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(7,4)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Merineide de Sousa</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(7,5)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(7,5)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(7)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(7)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.36s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Diácono Chefe</span>
-        <span class="cargo-count">1</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(8)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Amarildo Silva</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(8,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(8,0)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(8)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(8)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Diáconos</span>
-        <span class="cargo-count">9</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(9)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Fernando Silva</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(9,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(9,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Aldonio Vieira</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(9,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(9,1)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Iago Ricardo</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(9,2)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(9,2)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Igor Rodrigo</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(9,3)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(9,3)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Jardson Frazão</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(9,4)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(9,4)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Jonathan Pereira</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(9,5)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(9,5)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Jonns William</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(9,6)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(9,6)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Joseph Santos</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(9,7)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(9,7)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Leandro Silva</span>
-          
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(9,8)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(9,8)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(9)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(9)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Escola Sabatina</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(10)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Jacilene Selares</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(10,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(10,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Ana Beatriz</span>
-          <span class="funcao  ">Associada</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(10,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(10,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(10)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(10)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Evangelismo</span>
-        <span class="cargo-count">1</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(11)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Benerides Selares</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(11,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(11,0)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(11)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(11)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Liberdade Religiosa</span>
-        <span class="cargo-count">1</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(12)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Iago Ricardo</span>
-          <span class="funcao diretor ">Diretor</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(12,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(12,0)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(12)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(12)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Ministério da Criança</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(13)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Ana Karla</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(13,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(13,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Ana Sara</span>
-          <span class="funcao  ">Associada</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(13,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(13,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(13)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(13)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Ministério da Família</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(14)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Jailson Ribeiro</span>
-          <span class="funcao diretor ">Diretor</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(14,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(14,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Polyana Pereira</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(14,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(14,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(14)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(14)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Ministério da Mulher</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(15)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Joelma Sá</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(15,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(15,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Sirle Sá</span>
-          <span class="funcao  ">Associada</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(15,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(15,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(15)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(15)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Ministério das Possibilidades</span>
-        <span class="cargo-count">1</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(16)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Jadia Thais</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(16,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(16,0)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(16)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(16)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Ministério do Adolescente</span>
-        <span class="cargo-count">3</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(17)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Andreyna Nunes</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(17,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(17,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Ana Clara</span>
-          <span class="funcao  ">Associada</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(17,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(17,1)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Leandro Silva</span>
-          <span class="funcao  ">Associado</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(17,2)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(17,2)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(17)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(17)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Ministério dos Aventureiros</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(18)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Ana Clara</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(18,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(18,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Leandro Silva</span>
-          <span class="funcao  ">Associado</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(18,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(18,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(18)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(18)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Ministério dos Desbravadores</span>
-        <span class="cargo-count">3</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(19)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Ana Beatriz</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(19,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(19,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Evilla Wanessa</span>
-          <span class="funcao  ">Associada</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(19,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(19,1)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Glauber Ruan</span>
-          <span class="funcao  ">Associado</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(19,2)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(19,2)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(19)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(19)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Ministério dos Homens</span>
-        <span class="cargo-count">1</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(20)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Iago Ricardo</span>
-          <span class="funcao diretor ">Diretor</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(20,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(20,0)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(20)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(20)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Ministério Jovem</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(21)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Igor Rodrigo</span>
-          <span class="funcao diretor ">Diretor</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(21,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(21,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Joellyny Marcelly</span>
-          <span class="funcao  ">Associada</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(21,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(21,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(21)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(21)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Ministério Pessoal</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(22)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Fernando Silva</span>
-          <span class="funcao diretor ">Diretor</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(22,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(22,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Joelma Sá</span>
-          <span class="funcao  ">Associada</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(22,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(22,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(22)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(22)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Mordomia Cristã</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(23)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">José Nunes</span>
-          <span class="funcao diretor ">Diretor</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(23,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(23,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Jonns William</span>
-          <span class="funcao  ">Associado</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(23,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(23,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(23)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(23)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Música</span>
-        <span class="cargo-count">5</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(24)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Yan Cristhian</span>
-          <span class="funcao diretor ">Diretor</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(24,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(24,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Ana Sara</span>
-          <span class="funcao  equipe">Equipe</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(24,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(24,1)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Jadia Thais</span>
-          <span class="funcao  equipe">Equipe</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(24,2)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(24,2)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Ana Vitória</span>
-          <span class="funcao  equipe">Equipe</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(24,3)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(24,3)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Jonns william</span>
-          <span class="funcao  equipe">Equipe</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(24,4)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(24,4)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(24)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(24)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Patrimônio</span>
-        <span class="cargo-count">1</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(25)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Elias Lima</span>
-          <span class="funcao diretor ">Diretor</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(25,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(25,0)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(25)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(25)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Pequenos Grupos</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(26)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">José Ribamar Junior</span>
-          <span class="funcao diretor ">Diretor</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(26,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(26,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Jailson Ribeiro</span>
-          <span class="funcao  ">Associado</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(26,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(26,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(26)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(26)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Publicações</span>
-        <span class="cargo-count">1</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(27)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Jonathan Pereira</span>
-          <span class="funcao diretor ">Diretor</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(27,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(27,0)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(27)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(27)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Recepção</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(28)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Merindalva de Sousa</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(28,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(28,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Camila Santos</span>
-          <span class="funcao  ">Associada</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(28,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(28,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(28)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(28)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Saúde</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(29)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Ana Ricarda</span>
-          <span class="funcao diretor ">Diretora</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(29,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(29,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Andreyna Nunes</span>
-          <span class="funcao  ">Associada</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(29,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(29,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(29)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(29)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Secretaria</span>
-        <span class="cargo-count">1</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(30)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Joseph Santos</span>
-          <span class="funcao diretor ">Diretor</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(30,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(30,0)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(30)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(30)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Sonoplastia</span>
-        <span class="cargo-count">5</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(31)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Jonns William</span>
-          <span class="funcao diretor ">Diretor</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(31,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(31,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Ericles Felipe</span>
-          <span class="funcao  equipe">Equipe</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(31,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(31,1)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Eliedson Raposo</span>
-          <span class="funcao  equipe">Equipe</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(31,2)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(31,2)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Joseph Santos</span>
-          <span class="funcao  equipe">Equipe</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(31,3)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(31,3)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Yan Cristhian</span>
-          <span class="funcao  equipe">Equipe</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(31,4)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(31,4)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(31)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(31)">🗑️ Remover cargo</button>
-      </div>
-    </div><div class="card" style="animation-delay: 0.4s;">
-      <div class="cargo-header">
-        <span class="cargo-title">Tesouraria</span>
-        <span class="cargo-count">2</span>
-        <div class="admin-controls">
-          <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(32)">✏️</button>
-        </div>
-      </div>
-    
-        <div class="pessoa">
-          <span class="pessoa-nome">Jonathan Pereira</span>
-          <span class="funcao diretor ">Diretor</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(32,0)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(32,0)">🗑️</button>
-          </div>
-        </div>
-      
-        <div class="pessoa">
-          <span class="pessoa-nome">Yan Cristhian</span>
-          <span class="funcao  ">Associado</span>
-          <div class="admin-controls" style="margin-left:6px">
-            <button class="btn-icon btn-edit" onclick="openEditPessoa(32,1)">✏️</button>
-            <button class="btn-icon btn-del" onclick="removePessoa(32,1)">🗑️</button>
-          </div>
-        </div>
-      
-      <div class="cargo-admin-row">
-        <button class="btn-add-person" onclick="openAddPessoa(32)">＋ Adicionar pessoa</button>
-        <button class="btn-del-cargo" onclick="removeCargo(32)">🗑️ Remover cargo</button>
-      </div>
-    </div></div>
+<div id="list"></div>
 
 <footer>Igreja Adventista do Sétimo Dia • Iguaíba • 2026</footer>
 
@@ -1555,13 +440,13 @@ footer {
 <div id="save-bar">
   <div class="save-info">
     <strong>Modo Administrador</strong>
-    <span id="save-status"><span style="color:#fbbf24">● Alterações não salvas</span></span>
+    <span id="save-status">Nenhuma alteração</span>
   </div>
-  <button id="btn-save" onclick="saveToGitHub()" disabled="">⏳ Salvando…</button>
+  <button id="btn-save" onclick="saveToGitHub()">💾 Salvar</button>
 </div>
 
 <!-- TOAST -->
-<div id="toast" class="">Pessoa adicionada!</div>
+<div id="toast"></div>
 
 <!-- LOGIN MODAL -->
 <div class="modal-overlay" id="login-modal">
@@ -1570,9 +455,10 @@ footer {
     <h3 style="text-align:center">Acesso Administrativo</h3>
     <div class="field-group">
       <label>Senha</label>
-      <input type="password" id="login-senha" placeholder="Digite a senha" onkeydown="if(event.key==='Enter')doLogin()">
+      <input type="password" id="login-senha" placeholder="Digite a senha"
+        onkeydown="if(event.key==='Enter')doLogin()">
     </div>
-    <div class="login-error" id="login-error" style="display: none;">Senha incorreta. Tente novamente.</div>
+    <div class="login-error" id="login-error">Senha incorreta. Tente novamente.</div>
     <div class="modal-actions">
       <button class="btn-cancel" onclick="closeModal('login-modal')">Cancelar</button>
       <button class="btn-confirm" onclick="doLogin()">Entrar</button>
@@ -1583,7 +469,7 @@ footer {
 <!-- EDIT / ADD PESSOA MODAL -->
 <div class="modal-overlay" id="edit-modal">
   <div class="modal">
-    <h3 id="edit-title">Adicionar Pessoa</h3>
+    <h3 id="edit-title">Editar Pessoa</h3>
     <div class="field-group">
       <label>Nome</label>
       <input type="text" id="edit-nome" placeholder="Nome completo">
@@ -1612,7 +498,8 @@ footer {
     <h3>Novo Cargo</h3>
     <div class="field-group">
       <label>Nome do Cargo</label>
-      <input type="text" id="cargo-nome" placeholder="Ex: Ministério Jovem" onkeydown="if(event.key==='Enter')confirmAddCargo()">
+      <input type="text" id="cargo-nome" placeholder="Ex: Ministério Jovem"
+        onkeydown="if(event.key==='Enter')confirmAddCargo()">
     </div>
     <div class="modal-actions">
       <button class="btn-cancel" onclick="closeModal('cargo-modal')">Cancelar</button>
@@ -1635,453 +522,39 @@ let hasChanges = false;
 
 // ── DATA ──
 let data = [
-  {
-    "cargo": "Ação Solidária Adventista",
-    "pessoas": [
-      {
-        "nome": "Josiane Gomes",
-        "funcao": "Diretora"
-      },
-      {
-        "nome": "Inácia Costa",
-        "funcao": "Associada"
-      }
-    ]
-  },
-  {
-    "cargo": "Ancião Administrativo",
-    "pessoas": [
-      {
-        "nome": "José Ribamar Junior"
-      }
-    ]
-  },
-  {
-    "cargo": "Ancionato",
-    "pessoas": [
-      {
-        "nome": "Fernando Silva"
-      },
-      {
-        "nome": "Iago Ricardo"
-      },
-      {
-        "nome": "Jailson Ribeiro"
-      },
-      {
-        "nome": "José Ribamar Junior"
-      }
-    ]
-  },
-  {
-    "cargo": "Círculo de Oração",
-    "pessoas": [
-      {
-        "nome": "Benerides Selares",
-        "funcao": "Diretora"
-      }
-    ]
-  },
-  {
-    "cargo": "Comunicação",
-    "pessoas": [
-      {
-        "nome": "Ellayne Crystine",
-        "funcao": "Diretora"
-      },
-      {
-        "nome": "Eliedson Raposo",
-        "funcao": "Associado"
-      }
-    ]
-  },
-  {
-    "cargo": "Coordenador de Interessados",
-    "pessoas": [
-      {
-        "nome": "Viviane Gomes",
-        "funcao": "Diretora"
-      },
-      {
-        "nome": "Flavia Cristina",
-        "funcao": "Associada"
-      }
-    ]
-  },
-  {
-    "cargo": "Diaconisa Chefe",
-    "pessoas": [
-      {
-        "nome": "Sirle Sá"
-      }
-    ]
-  },
-  {
-    "cargo": "Diaconisas",
-    "pessoas": [
-      {
-        "nome": "Gilvana Conceição"
-      },
-      {
-        "nome": "Hildene Frazão"
-      },
-      {
-        "nome": "Inácia Costa"
-      },
-      {
-        "nome": "Jacilene Selares"
-      },
-      {
-        "nome": "Marlete Sousa"
-      },
-      {
-        "nome": "Merineide de Sousa"
-      }
-    ]
-  },
-  {
-    "cargo": "Diácono Chefe",
-    "pessoas": [
-      {
-        "nome": "Amarildo Silva"
-      }
-    ]
-  },
-  {
-    "cargo": "Diáconos",
-    "pessoas": [
-      {
-        "nome": "Fernando Silva"
-      },
-      {
-        "nome": "Aldonio Vieira"
-      },
-      {
-        "nome": "Iago Ricardo"
-      },
-      {
-        "nome": "Igor Rodrigo"
-      },
-      {
-        "nome": "Jardson Frazão"
-      },
-      {
-        "nome": "Jonathan Pereira"
-      },
-      {
-        "nome": "Jonns William"
-      },
-      {
-        "nome": "Joseph Santos"
-      },
-      {
-        "nome": "Leandro Silva"
-      }
-    ]
-  },
-  {
-    "cargo": "Escola Sabatina",
-    "pessoas": [
-      {
-        "nome": "Jacilene Selares",
-        "funcao": "Diretora"
-      },
-      {
-        "nome": "Ana Beatriz",
-        "funcao": "Associada"
-      }
-    ]
-  },
-  {
-    "cargo": "Evangelismo",
-    "pessoas": [
-      {
-        "nome": "Benerides Selares",
-        "funcao": "Diretora"
-      }
-    ]
-  },
-  {
-    "cargo": "Liberdade Religiosa",
-    "pessoas": [
-      {
-        "nome": "Iago Ricardo",
-        "funcao": "Diretor"
-      }
-    ]
-  },
-  {
-    "cargo": "Ministério da Criança",
-    "pessoas": [
-      {
-        "nome": "Ana Karla",
-        "funcao": "Diretora"
-      },
-      {
-        "nome": "Ana Sara",
-        "funcao": "Associada"
-      }
-    ]
-  },
-  {
-    "cargo": "Ministério da Família",
-    "pessoas": [
-      {
-        "nome": "Jailson Ribeiro",
-        "funcao": "Diretor"
-      },
-      {
-        "nome": "Polyana Pereira",
-        "funcao": "Diretora"
-      }
-    ]
-  },
-  {
-    "cargo": "Ministério da Mulher",
-    "pessoas": [
-      {
-        "nome": "Joelma Sá",
-        "funcao": "Diretora"
-      },
-      {
-        "nome": "Sirle Sá",
-        "funcao": "Associada"
-      }
-    ]
-  },
-  {
-    "cargo": "Ministério das Possibilidades",
-    "pessoas": [
-      {
-        "nome": "Jadia Thais",
-        "funcao": "Diretora"
-      }
-    ]
-  },
-  {
-    "cargo": "Ministério do Adolescente",
-    "pessoas": [
-      {
-        "nome": "Andreyna Nunes",
-        "funcao": "Diretora"
-      },
-      {
-        "nome": "Ana Clara",
-        "funcao": "Associada"
-      },
-      {
-        "nome": "Leandro Silva",
-        "funcao": "Associado"
-      }
-    ]
-  },
-  {
-    "cargo": "Ministério dos Aventureiros",
-    "pessoas": [
-      {
-        "nome": "Ana Clara",
-        "funcao": "Diretora"
-      },
-      {
-        "nome": "Leandro Silva",
-        "funcao": "Associado"
-      }
-    ]
-  },
-  {
-    "cargo": "Ministério dos Desbravadores",
-    "pessoas": [
-      {
-        "nome": "Ana Beatriz",
-        "funcao": "Diretora"
-      },
-      {
-        "nome": "Evilla Wanessa",
-        "funcao": "Associada"
-      },
-      {
-        "nome": "Glauber Ruan",
-        "funcao": "Associado"
-      }
-    ]
-  },
-  {
-    "cargo": "Ministério dos Homens",
-    "pessoas": [
-      {
-        "nome": "Iago Ricardo",
-        "funcao": "Diretor"
-      }
-    ]
-  },
-  {
-    "cargo": "Ministério Jovem",
-    "pessoas": [
-      {
-        "nome": "Igor Rodrigo",
-        "funcao": "Diretor"
-      },
-      {
-        "nome": "Joellyny Marcelly",
-        "funcao": "Associada"
-      }
-    ]
-  },
-  {
-    "cargo": "Ministério Pessoal",
-    "pessoas": [
-      {
-        "nome": "Fernando Silva",
-        "funcao": "Diretor"
-      },
-      {
-        "nome": "Joelma Sá",
-        "funcao": "Associada"
-      }
-    ]
-  },
-  {
-    "cargo": "Mordomia Cristã",
-    "pessoas": [
-      {
-        "nome": "José Nunes",
-        "funcao": "Diretor"
-      },
-      {
-        "nome": "Jonns William",
-        "funcao": "Associado"
-      }
-    ]
-  },
-  {
-    "cargo": "Música",
-    "pessoas": [
-      {
-        "nome": "Yan Cristhian",
-        "funcao": "Diretor"
-      },
-      {
-        "nome": "Ana Sara",
-        "funcao": "Equipe"
-      },
-      {
-        "nome": "Jadia Thais",
-        "funcao": "Equipe"
-      },
-      {
-        "nome": "Ana Vitória",
-        "funcao": "Equipe"
-      },
-      {
-        "nome": "Jonns william",
-        "funcao": "Equipe"
-      }
-    ]
-  },
-  {
-    "cargo": "Patrimônio",
-    "pessoas": [
-      {
-        "nome": "Elias Lima",
-        "funcao": "Diretor"
-      }
-    ]
-  },
-  {
-    "cargo": "Pequenos Grupos",
-    "pessoas": [
-      {
-        "nome": "José Ribamar Junior",
-        "funcao": "Diretor"
-      },
-      {
-        "nome": "Jailson Ribeiro",
-        "funcao": "Associado"
-      }
-    ]
-  },
-  {
-    "cargo": "Publicações",
-    "pessoas": [
-      {
-        "nome": "Jonathan Pereira",
-        "funcao": "Diretor"
-      }
-    ]
-  },
-  {
-    "cargo": "Recepção",
-    "pessoas": [
-      {
-        "nome": "Merindalva de Sousa",
-        "funcao": "Diretora"
-      },
-      {
-        "nome": "Camila Santos",
-        "funcao": "Associada"
-      }
-    ]
-  },
-  {
-    "cargo": "Saúde",
-    "pessoas": [
-      {
-        "nome": "Ana Ricarda",
-        "funcao": "Diretora"
-      },
-      {
-        "nome": "Andreyna Nunes",
-        "funcao": "Associada"
-      }
-    ]
-  },
-  {
-    "cargo": "Secretaria",
-    "pessoas": [
-      {
-        "nome": "Joseph Santos",
-        "funcao": "Diretor"
-      }
-    ]
-  },
-  {
-    "cargo": "Sonoplastia",
-    "pessoas": [
-      {
-        "nome": "Jonns William",
-        "funcao": "Diretor"
-      },
-      {
-        "nome": "Ericles Felipe",
-        "funcao": "Equipe"
-      },
-      {
-        "nome": "Eliedson Raposo",
-        "funcao": "Equipe"
-      },
-      {
-        "nome": "Joseph Santos",
-        "funcao": "Equipe"
-      },
-      {
-        "nome": "Yan Cristhian",
-        "funcao": "Equipe"
-      }
-    ]
-  },
-  {
-    "cargo": "Tesouraria",
-    "pessoas": [
-      {
-        "nome": "Jonathan Pereira",
-        "funcao": "Diretor"
-      },
-      {
-        "nome": "Yan Cristhian",
-        "funcao": "Associado"
-      }
-    ]
-  }
+  { cargo:"Ação Solidária Adventista", pessoas:[{nome:"Josiane Gomes",funcao:"Diretora"},{nome:"Inácia Costa",funcao:"Associada"}]},
+  { cargo:"Ancião Administrativo", pessoas:[{nome:"José Ribamar Junior"}]},
+  { cargo:"Ancionato", pessoas:[{nome:"Fernando Silva"},{nome:"Iago Ricardo"},{nome:"Jailson Ribeiro"},{nome:"José Ribamar Junior"}]},
+  { cargo:"Círculo de Oração", pessoas:[{nome:"Benerides Selares",funcao:"Diretora"}]},
+  { cargo:"Comunicação", pessoas:[{nome:"Ellayne Crystine",funcao:"Diretora"},{nome:"Eliedson Raposo",funcao:"Associado"}]},
+  { cargo:"Coordenador de Interessados", pessoas:[{nome:"Viviane Gomes",funcao:"Diretora"},{nome:"Flavia Cristina",funcao:"Associada"}]},
+  { cargo:"Diaconisa Chefe", pessoas:[{nome:"Sirle Sá"}]},
+  { cargo:"Diaconisas", pessoas:[{nome:"Gilvana Conceição"},{nome:"Hildene Frazão"},{nome:"Inácia Costa"},{nome:"Jacilene Selares"},{nome:"Marlete Sousa"},{nome:"Merineide de Sousa"}]},
+  { cargo:"Diácono Chefe", pessoas:[{nome:"Amarildo Silva"}]},
+  { cargo:"Diáconos", pessoas:[{nome:"Alcionor Frazão"},{nome:"Fernando Silva"},{nome:"Aldonio Vieira"},{nome:"Hermes Junior"},{nome:"Iago Ricardo"},{nome:"Igor Rodrigo"},{nome:"Jardson Frazão"},{nome:"Jonathan Pereira"},{nome:"Jonns William"},{nome:"Joseph Santos"},{nome:"Leandro Silva"}]},
+  { cargo:"Escola Sabatina", pessoas:[{nome:"Jacilene Selares",funcao:"Diretora"},{nome:"Ana Beatriz",funcao:"Associada"}]},
+  { cargo:"Evangelismo", pessoas:[{nome:"Benerides Selares",funcao:"Diretora"}]},
+  { cargo:"Liberdade Religiosa", pessoas:[{nome:"Iago Ricardo",funcao:"Diretor"}]},
+  { cargo:"Ministério da Criança", pessoas:[{nome:"Ana Karla",funcao:"Diretora"},{nome:"Ana Sara",funcao:"Associada"}]},
+  { cargo:"Ministério da Família", pessoas:[{nome:"Jailson Ribeiro",funcao:"Diretor"},{nome:"Polyana Pereira",funcao:"Diretora"}]},
+  { cargo:"Ministério da Mulher", pessoas:[{nome:"Joelma Sá",funcao:"Diretora"},{nome:"Sirle Sá",funcao:"Associada"}]},
+  { cargo:"Ministério das Possibilidades", pessoas:[{nome:"Jadia Thais",funcao:"Diretora"}]},
+  { cargo:"Ministério do Adolescente", pessoas:[{nome:"Andreyna Nunes",funcao:"Diretora"},{nome:"Ana Clara",funcao:"Associada"},{nome:"Leandro Silva",funcao:"Associado"}]},
+  { cargo:"Ministério dos Aventureiros", pessoas:[{nome:"Ana Clara",funcao:"Diretora"},{nome:"Joellyny Marcelly",funcao:"Associada"},{nome:"Leandro Silva",funcao:"Associado"}]},
+  { cargo:"Ministério dos Desbravadores", pessoas:[{nome:"Ana Beatriz",funcao:"Diretora"},{nome:"Evilla Wanessa",funcao:"Associada"},{nome:"Glauber Ruan",funcao:"Associado"}]},
+  { cargo:"Ministério dos Homens", pessoas:[{nome:"Iago Ricardo",funcao:"Diretor"}]},
+  { cargo:"Ministério Jovem", pessoas:[{nome:"Igor Rodrigo",funcao:"Diretor"},{nome:"Joellyny Marcelly",funcao:"Associada"}]},
+  { cargo:"Ministério Pessoal", pessoas:[{nome:"Fernando Silva",funcao:"Diretor"},{nome:"Joelma Sá",funcao:"Associada"}]},
+  { cargo:"Mordomia Cristã", pessoas:[{nome:"José Nunes",funcao:"Diretor"},{nome:"Jonns William",funcao:"Associado"}]},
+  { cargo:"Música", pessoas:[{nome:"Yan Cristhian",funcao:"Diretor"},{nome:"Ana Sara",funcao:"Equipe"},{nome:"Jadia Thais",funcao:"Equipe"},{nome:"Ana Vitória",funcao:"Equipe"}]},
+  { cargo:"Patrimônio", pessoas:[{nome:"Elias Lima",funcao:"Diretor"}]},
+  { cargo:"Pequenos Grupos", pessoas:[{nome:"José Ribamar Junior",funcao:"Diretor"},{nome:"Jailson Ribeiro",funcao:"Associado"}]},
+  { cargo:"Publicações", pessoas:[{nome:"Jonathan Pereira",funcao:"Diretor"}]},
+  { cargo:"Recepção", pessoas:[{nome:"Merindalva de Sousa",funcao:"Diretora"},{nome:"Camila Santos",funcao:"Associada"}]},
+  { cargo:"Saúde", pessoas:[{nome:"Ana Ricarda",funcao:"Diretora"},{nome:"Andreyna Nunes",funcao:"Associada"}]},
+  { cargo:"Secretaria", pessoas:[{nome:"Joseph Santos",funcao:"Diretor"}]},
+  { cargo:"Sonoplastia", pessoas:[{nome:"Jonns William",funcao:"Diretor"},{nome:"Ericles Felipe",funcao:"Equipe"},{nome:"Eliedson Raposo",funcao:"Equipe"},{nome:"Joseph Santos",funcao:"Equipe"},{nome:"Yan Cristhian",funcao:"Equipe"}]},
+  { cargo:"Tesouraria", pessoas:[{nome:"Jonathan Pereira",funcao:"Diretor"},{nome:"Yan Cristhian",funcao:"Associado"}]}
 ];
 
 data.sort((a,b) => a.cargo.localeCompare(b.cargo,"pt-BR"));
@@ -2138,9 +611,9 @@ function render(filter="") {
       <div class="cargo-header">
         <span class="cargo-title">${item.cargo}</span>
         <span class="cargo-count">${item.pessoas.length}</span>
-        <div class="admin-controls">
+        ${isAdmin ? `<div class="admin-controls">
           <button class="btn-icon btn-edit" title="Renomear cargo" onclick="openEditCargo(${ci})">✏️</button>
-        </div>
+        </div>` : ""}
       </div>
     `;
 
@@ -2152,20 +625,20 @@ function render(filter="") {
         <div class="pessoa">
           <span class="pessoa-nome">${p.nome}</span>
           ${p.funcao ? `<span class="funcao ${isDiretor?"diretor":""} ${isEquipe?"equipe":""}">${p.funcao}</span>` : ""}
-          <div class="admin-controls" style="margin-left:6px">
+          ${isAdmin ? `<div class="admin-controls" style="margin-left:6px">
             <button class="btn-icon btn-edit" onclick="openEditPessoa(${ci},${pi})">✏️</button>
             <button class="btn-icon btn-del"  onclick="removePessoa(${ci},${pi})">🗑️</button>
-          </div>
+          </div>` : ""}
         </div>
       `;
     });
 
-    html += `
+    html += isAdmin ? `
       <div class="cargo-admin-row">
         <button class="btn-add-person" onclick="openAddPessoa(${ci})">＋ Adicionar pessoa</button>
         <button class="btn-del-cargo"  onclick="removeCargo(${ci})">🗑️ Remover cargo</button>
       </div>
-    `;
+    ` : "";
 
     card.innerHTML = html;
     list.appendChild(card);
@@ -2221,6 +694,7 @@ function closeModal(id) {
 
 // ── EDIT PESSOA ──
 function openEditPessoa(ci, pi) {
+  if (!isAdmin) return;
   const p = data[ci].pessoas[pi];
   document.getElementById("edit-title").textContent = "Editar Pessoa";
   document.getElementById("edit-nome").value = p.nome;
@@ -2243,6 +717,7 @@ function openEditPessoa(ci, pi) {
 
 // ── ADD PESSOA ──
 function openAddPessoa(ci) {
+  if (!isAdmin) return;
   document.getElementById("edit-title").textContent = "Adicionar Pessoa";
   document.getElementById("edit-nome").value = "";
   document.getElementById("edit-funcao").value = "";
@@ -2262,6 +737,7 @@ function openAddPessoa(ci) {
 
 // ── REMOVE PESSOA ──
 function removePessoa(ci, pi) {
+  if (!isAdmin) return;
   if (!confirm(`Remover "${data[ci].pessoas[pi].nome}" de "${data[ci].cargo}"?`)) return;
   data[ci].pessoas.splice(pi, 1);
   setChanged(true);
@@ -2271,6 +747,7 @@ function removePessoa(ci, pi) {
 
 // ── EDIT CARGO (renomear) ──
 function openEditCargo(ci) {
+  if (!isAdmin) return;
   document.getElementById("edit-title").textContent = "Renomear Cargo";
   document.getElementById("edit-nome").value = data[ci].cargo;
   document.getElementById("funcao-group").style.display = "none";
@@ -2289,6 +766,7 @@ function openEditCargo(ci) {
 
 // ── ADD CARGO ──
 function openAddCargo() {
+  if (!isAdmin) return;
   document.getElementById("cargo-nome").value = "";
   openModal("cargo-modal");
   setTimeout(() => document.getElementById("cargo-nome").focus(), 150);
@@ -2307,6 +785,7 @@ function confirmAddCargo() {
 
 // ── REMOVE CARGO ──
 function removeCargo(ci) {
+  if (!isAdmin) return;
   if (!confirm(`Remover o cargo "${data[ci].cargo}" e todos os seus membros?`)) return;
   data.splice(ci, 1);
   setChanged(true);
@@ -2384,6 +863,5 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js');
 }
 </script>
-
-
-</body></html>
+</body>
+</html>
